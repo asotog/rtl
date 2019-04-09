@@ -7,7 +7,7 @@ export default class ShowsApi {
         return axios.get<Show[]>(SHOWS_API_URL);
     }
     getCast(showId: number) {
-        console.log(`calling get cash api: ${showId}`);
+        console.log(`calling get cast api show id: ${showId}`);
         return axios.get<CastPerson[]>(SHOWS_CAST_API_URL(showId));
     }
     getCastFromShows(shows: Show[]) {
@@ -21,6 +21,8 @@ export default class ShowsApi {
             });
            return Promise.all(storePromises);
 
-        }).catch(console.log);
+        }).catch(error => {
+            console.log(error);
+        });
     }
 }

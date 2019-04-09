@@ -7,13 +7,13 @@ const initializeShows = () => {
     const api = new ShowsApi();
     const showsStorage = new ShowsStorage();
     showsStorage.createTables();
-    // showsStorage.count().then(count => {
-    //     console.log(count);
-    // });
-
-    // api.list().then(response => {
-    //     showsStorage.storeList(response.data);
-    // });
+    showsStorage.count().then(count => {
+        api.list().then(response => {
+            if (count < response.data.length) {
+                showsStorage.storeList(response.data);
+            }
+        });
+    });    
 };
 
 async function main() {

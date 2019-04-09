@@ -32,7 +32,7 @@ export default class ShowsStorage {
         return this.queryShowsList(`SELECT * FROM show LIMIT ${pageSize} OFFSET ${offset} `);
     }
     listCastByShowId(showId: number) {
-        return this.queryShowCast(`SELECT * FROM cast WHERE showId = ${showId}`);
+        return this.queryShowCast(`SELECT * FROM cast WHERE showId = ${showId} ORDER BY birthday DESC`);
     }
     listCastsByShows(shows: Show[]) {
         return Promise.all(shows.map(show => this.listCastByShowId(show.id)));
