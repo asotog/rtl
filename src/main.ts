@@ -3,7 +3,7 @@ import ShowsStorage from './storage';
 import * as web from "./web";
 import ShowsApi from "./api";
 
-const loadShows = () => {
+const initializeShows = () => {
     const api = new ShowsApi();
     const showsStorage = new ShowsStorage();
     showsStorage.createTables();
@@ -17,7 +17,7 @@ const loadShows = () => {
 };
 
 async function main() {
-    loadShows();
+    initializeShows();
     await web.start(SERVER_PORT);
     console.log(`Server started at http://localhost:${SERVER_PORT}`);
 }
