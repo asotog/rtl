@@ -1,14 +1,14 @@
-type Show = {
+export interface Show {
     id: number;
     name: string;
 }
 
-type Person = {
-    id: number,
+export interface Person {
+    id: number;
     name: string;
     birthday: string;
 }
 
-type CastPerson = {
+export interface CastPerson {
     person: Person;
 }
